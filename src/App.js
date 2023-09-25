@@ -1,24 +1,56 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { Button } from 'reactstrap';
+import {  useState } from 'react';
 
 function App() {
+
+  let[count,secount]=useState(0);
+
+  const countplush = () => {
+   
+    if(count>=50){
+      secount(50);
+    }else{
+      secount(count+1);
+    }
+    
+  }
+
+  const countminus = () => {
+   
+    if(count<=0){
+      secount(0);
+    }else{
+      secount(count-1);
+    }
+
+  }
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    
+    <div className="container">
+
+     <div className="frame">
+
+            <h1 className='my-1'>Count 1 to 50</h1>
+
+      <div className="frameinside">
+
+      <h1 id='count'>{count}</h1>
+
+
+      <br/>
+      <Button color="dark mx-3"  onClick={countminus}>count-</Button>
+      <Button color="dark"  onClick={countplush}>count+</Button>
+
+      </div>
+
     </div>
+    </div>
+
+    </>
   );
 }
 
